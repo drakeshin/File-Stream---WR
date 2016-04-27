@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.fileLocal = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.readBox = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.BrowserFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.typeFile = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -49,12 +49,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "File:";
             // 
-            // textBox1
+            // fileLocal
             // 
-            this.textBox1.Location = new System.Drawing.Point(47, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(434, 20);
-            this.textBox1.TabIndex = 1;
+            this.fileLocal.Location = new System.Drawing.Point(47, 22);
+            this.fileLocal.Name = "fileLocal";
+            this.fileLocal.Size = new System.Drawing.Size(434, 20);
+            this.fileLocal.TabIndex = 1;
             // 
             // button1
             // 
@@ -103,18 +103,18 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Read FileType:";
             // 
-            // comboBox1
+            // typeFile
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.typeFile.FormattingEnabled = true;
+            this.typeFile.Items.AddRange(new object[] {
             "Text",
             "Hex",
             "Binary",
             "Base64"});
-            this.comboBox1.Location = new System.Drawing.Point(495, 176);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(92, 21);
-            this.comboBox1.TabIndex = 9;
+            this.typeFile.Location = new System.Drawing.Point(495, 176);
+            this.typeFile.Name = "typeFile";
+            this.typeFile.Size = new System.Drawing.Size(92, 21);
+            this.typeFile.TabIndex = 9;
             // 
             // button2
             // 
@@ -132,13 +132,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 391);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.typeFile);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.readBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.fileLocal);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(610, 430);
             this.Name = "FSWR";
@@ -152,14 +152,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox fileLocal;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox readBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FolderBrowserDialog BrowserFolder;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox typeFile;
         private System.Windows.Forms.Button button2;
     }
 }
