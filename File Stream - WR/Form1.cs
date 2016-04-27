@@ -17,6 +17,7 @@ namespace File_Stream___WR
         private StreamHandler sHandler = new StreamHandler();
         private OpenFileDialog openFD;
         private string lineGet;
+        private string hexGet;
         private bool editable = false;
         //
         public FSWR()
@@ -24,7 +25,7 @@ namespace File_Stream___WR
             InitializeComponent();
             readBox.ScrollBars = ScrollBars.Vertical;
             readBox.WordWrap = true;
-            
+            typeFile.SelectedIndex = 0;
             
 
         }
@@ -42,13 +43,40 @@ namespace File_Stream___WR
             {
                 try
                 {
+                    //Seria bom fazer um botao de converter oq tem em tela para outro tipo...
 
-                    
-                    
+                    if (typeFile.SelectedIndex == 0)
+                    {
+                        readBox.Clear();
+                        fileLocal.Clear();
+                        readBox.ReadOnly = true;
                         sHandler.reader = new System.IO.StreamReader(openFD.FileName);
                         lineGet = sHandler.reader.ReadToEnd();
                         readBox.Text = lineGet;
-                    sHandler.reader.Close();
+                        sHandler.reader.Close();
+                    }
+                    else if (typeFile.SelectedIndex == 1) {
+                        readBox.Clear();
+                        fileLocal.Clear();
+                        readBox.ReadOnly = true;
+                        sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        lineGet = sHandler.reader.ReadToEnd();
+                        /* foreach (char c in lineGet)
+                         {
+                             // hexGet += ((int)c).ToString("X") + " ";
+                             hexGet += ((int)c).ToString("X") + " ";
+                         }*/ //Tinha uma falha, o codigo abaixo esta correto
+                        byte[] converted = Encoding.Default.GetBytes(lineGet);
+                        hexGet = BitConverter.ToString(converted);
+                        hexGet = hexGet.Replace("-", "");
+                        readBox.Text = hexGet;
+                        sHandler.reader.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing.....[error]");
+                    }
+                    
                     
                    
                     
@@ -69,7 +97,7 @@ namespace File_Stream___WR
 
         private void button2_Click(object sender, EventArgs e)
         {
-            readBox.ReadOnly = false;
+            //readBox.ReadOnly = false;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
