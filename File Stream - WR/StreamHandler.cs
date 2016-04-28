@@ -18,6 +18,7 @@ namespace File_Stream___WR
         public StreamWriter writer;
         public BinaryWriter writerBW;
         public BinaryReader readerBR;
+        public StringBuilder sb;
         private FSWR mainForm;
 
 

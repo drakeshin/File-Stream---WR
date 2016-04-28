@@ -18,6 +18,7 @@ namespace File_Stream___WR
         private OpenFileDialog openFD;
         private string lineGet;
         private string hexGet;
+        private string binaryGet;
         private bool editable = false;
         //
         public FSWR()
@@ -29,12 +30,18 @@ namespace File_Stream___WR
             
 
         }
-
+        /// <summary>
+        /// Isso deve ser deletado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             openFile();
         }
-
+        /// <summary>
+        /// Aqui acontece todo o processo de abrir o arquivo já convertido no formato escolhido
+        /// </summary>
         private void openFile()
         {
             openFD = new OpenFileDialog();
@@ -61,15 +68,38 @@ namespace File_Stream___WR
                         readBox.ReadOnly = true;
                         sHandler.reader = new System.IO.StreamReader(openFD.FileName);
                         lineGet = sHandler.reader.ReadToEnd();
-                        /* foreach (char c in lineGet)
-                         {
-                             // hexGet += ((int)c).ToString("X") + " ";
-                             hexGet += ((int)c).ToString("X") + " ";
-                         }*/ //Tinha uma falha, o codigo abaixo esta correto
                         byte[] converted = Encoding.Default.GetBytes(lineGet);
                         hexGet = BitConverter.ToString(converted);
                         hexGet = hexGet.Replace("-", "");
                         readBox.Text = hexGet;
+                        sHandler.reader.Close();
+                    }
+                    else if (typeFile.SelectedIndex == 2)
+                    {
+                        readBox.Clear();
+                        fileLocal.Clear();
+                        readBox.ReadOnly = true;
+                        sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        lineGet = sHandler.reader.ReadToEnd();
+                        sHandler.sb = new StringBuilder();
+                        foreach (char s in lineGet.ToCharArray())
+                        {
+                            sHandler.sb.Append(Convert.ToString(s, 2).PadLeft(8, '0'));
+                            
+                        }
+                        readBox.Text =  sHandler.sb.ToString();
+                        
+                        sHandler.reader.Close();
+                    }
+                    else if (typeFile.SelectedIndex == 3)
+                    {
+                        readBox.Clear();
+                        fileLocal.Clear();
+                        readBox.ReadOnly = true;
+                        sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        lineGet = sHandler.reader.ReadToEnd();
+                        var myFile = Encoding.UTF8.GetBytes(lineGet);
+                        readBox.Text = Convert.ToBase64String(myFile);
                         sHandler.reader.Close();
                     }
                     else
