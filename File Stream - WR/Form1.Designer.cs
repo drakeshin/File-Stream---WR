@@ -38,6 +38,7 @@
             this.BrowserFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.typeFile = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -98,7 +99,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(495, 160);
+            this.label3.Location = new System.Drawing.Point(495, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 8;
@@ -112,7 +113,7 @@
             "Hex",
             "Binary",
             "Base64"});
-            this.typeFile.Location = new System.Drawing.Point(495, 176);
+            this.typeFile.Location = new System.Drawing.Point(495, 198);
             this.typeFile.Name = "typeFile";
             this.typeFile.Size = new System.Drawing.Size(92, 21);
             this.typeFile.TabIndex = 9;
@@ -127,11 +128,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(495, 133);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(84, 23);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Convert";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // FSWR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 391);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.typeFile);
             this.Controls.Add(this.label3);
@@ -162,6 +174,7 @@
         private System.Windows.Forms.FolderBrowserDialog BrowserFolder;
         private System.Windows.Forms.ComboBox typeFile;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
     }
 }
 

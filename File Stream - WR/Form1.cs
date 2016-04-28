@@ -149,5 +149,36 @@ namespace File_Stream___WR
             readBox.ReadOnly = true;
         
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (typeFile.SelectedIndex == 0)
+            {
+                readBox.Text = Convert.ToString(lineGet);
+            }
+            else if (typeFile.SelectedIndex == 1)
+            {
+                byte[] converted = Encoding.Default.GetBytes(lineGet);
+                hexGet = BitConverter.ToString(converted);
+                hexGet = hexGet.Replace("-", "");
+                readBox.Text = hexGet;
+            }
+            else if(typeFile.SelectedIndex == 2)
+            {
+                sHandler.sb = new StringBuilder();
+                foreach (char s in lineGet.ToCharArray())
+                {
+                    sHandler.sb.Append(Convert.ToString(s, 2).PadLeft(8, '0'));
+
+                }
+                readBox.Text = sHandler.sb.ToString();
+            }
+            else if (typeFile.SelectedIndex == 3)
+            {
+                var myFile = Encoding.UTF8.GetBytes(lineGet);
+                readBox.Text = Convert.ToBase64String(myFile);
+            }
+            else { }
+        }
     }
 }
