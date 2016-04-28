@@ -30,11 +30,7 @@ namespace File_Stream___WR
             
 
         }
-        /// <summary>
-        /// Isso deve ser deletado
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        
         private void button1_Click(object sender, EventArgs e)
         {
             openFile();
@@ -124,7 +120,11 @@ namespace File_Stream___WR
         {
 
         }
-
+        /// <summary>
+        /// Isso deve ser deletado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             //readBox.ReadOnly = false;
