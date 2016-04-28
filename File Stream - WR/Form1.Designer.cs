@@ -53,6 +53,7 @@
             // 
             this.fileLocal.Location = new System.Drawing.Point(47, 22);
             this.fileLocal.Name = "fileLocal";
+            this.fileLocal.ReadOnly = true;
             this.fileLocal.Size = new System.Drawing.Size(434, 20);
             this.fileLocal.TabIndex = 1;
             // 
