@@ -28,6 +28,7 @@ namespace File_Stream___WR
             readBox.WordWrap = true;
             typeFile.SelectedIndex = 0;
             
+            
 
         }
         
@@ -54,6 +55,7 @@ namespace File_Stream___WR
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
                         sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        fileLocal.Text = openFD.FileName;
                         lineGet = sHandler.reader.ReadToEnd();
                         readBox.Text = lineGet;
                         sHandler.reader.Close();
@@ -63,6 +65,7 @@ namespace File_Stream___WR
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
                         sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        fileLocal.Text = openFD.FileName;
                         lineGet = sHandler.reader.ReadToEnd();
                         byte[] converted = Encoding.Default.GetBytes(lineGet);
                         hexGet = BitConverter.ToString(converted);
@@ -76,6 +79,7 @@ namespace File_Stream___WR
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
                         sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        fileLocal.Text = openFD.FileName;
                         lineGet = sHandler.reader.ReadToEnd();
                         sHandler.sb = new StringBuilder();
                         foreach (char s in lineGet.ToCharArray())
@@ -93,6 +97,7 @@ namespace File_Stream___WR
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
                         sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        fileLocal.Text = openFD.FileName;
                         lineGet = sHandler.reader.ReadToEnd();
                         var myFile = Encoding.UTF8.GetBytes(lineGet);
                         readBox.Text = Convert.ToBase64String(myFile);
