@@ -66,7 +66,9 @@ namespace File_Stream___WR
                         readBox.Clear();
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
-                        sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite);
+                        sHandler.bufReader = new System.IO.BufferedStream(sHandler.fileFS);
+                        sHandler.reader = new System.IO.StreamReader(sHandler.bufReader);
                         fileLocal.Text = openFD.FileName;
                         lineGet = sHandler.reader.ReadToEnd();
                         byte[] converted = Encoding.Default.GetBytes(lineGet);
@@ -80,7 +82,9 @@ namespace File_Stream___WR
                         readBox.Clear();
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
-                        sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite);
+                        sHandler.bufReader = new System.IO.BufferedStream(sHandler.fileFS);
+                        sHandler.reader = new System.IO.StreamReader(sHandler.bufReader);
                         fileLocal.Text = openFD.FileName;
                         lineGet = sHandler.reader.ReadToEnd();
                         sHandler.sb = new StringBuilder();
@@ -98,7 +102,9 @@ namespace File_Stream___WR
                         readBox.Clear();
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
-                        sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite);
+                        sHandler.bufReader = new System.IO.BufferedStream(sHandler.fileFS);
+                        sHandler.reader = new System.IO.StreamReader(sHandler.bufReader);
                         fileLocal.Text = openFD.FileName;
                         lineGet = sHandler.reader.ReadToEnd();
                         var myFile = Encoding.UTF8.GetBytes(lineGet);
