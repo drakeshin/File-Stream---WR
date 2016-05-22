@@ -16,6 +16,7 @@ namespace File_Stream___WR
         public FileStream fileFS;
         public StreamReader reader;
         public StreamWriter writer;
+        public BufferedStream bufReader;
         public BinaryWriter writerBW;
         public BinaryReader readerBR;
         public StringBuilder sb;

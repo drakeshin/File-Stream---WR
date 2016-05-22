@@ -54,7 +54,9 @@ namespace File_Stream___WR
                         readBox.Clear();
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
-                        sHandler.reader = new System.IO.StreamReader(openFD.FileName);
+                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite);
+                        sHandler.bufReader = new System.IO.BufferedStream(sHandler.fileFS);
+                        sHandler.reader = new System.IO.StreamReader(sHandler.bufReader);
                         fileLocal.Text = openFD.FileName;
                         lineGet = sHandler.reader.ReadToEnd();
                         readBox.Text = lineGet;
