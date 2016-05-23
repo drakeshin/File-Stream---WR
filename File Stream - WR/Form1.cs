@@ -54,19 +54,22 @@ namespace File_Stream___WR
                         readBox.Clear();
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
-                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite);
+                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite);
                         sHandler.bufReader = new System.IO.BufferedStream(sHandler.fileFS);
                         sHandler.reader = new System.IO.StreamReader(sHandler.bufReader);
                         fileLocal.Text = openFD.FileName;
                         lineGet = sHandler.reader.ReadToEnd();
-                        readBox.Text = lineGet;
+                        var utf8 = Encoding.UTF8;
+                        byte[] utf = utf8.GetBytes(lineGet);
+                        string converted = utf8.GetString(utf, 0, utf.Length);
+                        readBox.Text = converted;
                         sHandler.reader.Close();
                     }
                     else if (typeFile.SelectedIndex == 1) {
                         readBox.Clear();
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
-                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite);
+                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite);
                         sHandler.bufReader = new System.IO.BufferedStream(sHandler.fileFS);
                         sHandler.reader = new System.IO.StreamReader(sHandler.bufReader);
                         fileLocal.Text = openFD.FileName;
@@ -82,7 +85,7 @@ namespace File_Stream___WR
                         readBox.Clear();
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
-                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite);
+                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite);
                         sHandler.bufReader = new System.IO.BufferedStream(sHandler.fileFS);
                         sHandler.reader = new System.IO.StreamReader(sHandler.bufReader);
                         fileLocal.Text = openFD.FileName;
@@ -102,7 +105,7 @@ namespace File_Stream___WR
                         readBox.Clear();
                         fileLocal.Clear();
                         readBox.ReadOnly = true;
-                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite);
+                        sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite);
                         sHandler.bufReader = new System.IO.BufferedStream(sHandler.fileFS);
                         sHandler.reader = new System.IO.StreamReader(sHandler.bufReader);
                         fileLocal.Text = openFD.FileName;
@@ -155,7 +158,12 @@ namespace File_Stream___WR
             sHandler.writer.WriteLine(readBox.Text);
             sHandler.writer.Close();
             readBox.ReadOnly = true;
-        
+            sHandler.fileFS = new System.IO.FileStream(openFD.FileName, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite);
+            sHandler.bufReader = new System.IO.BufferedStream(sHandler.fileFS);
+            sHandler.reader = new System.IO.StreamReader(sHandler.bufReader);
+            fileLocal.Text = openFD.FileName;
+
+
         }
 
         private void button4_Click(object sender, EventArgs e)
